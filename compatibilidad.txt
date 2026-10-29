@@ -1,0 +1,39 @@
+===============================================================================
+INFORME DE COMPATIBILIDAD CROSS-BROWSER Y PRUEBAS EN NAVEGADORES
+Proyecto: Componente de Perfil con Efecto de Vidrio (Glassmorphism)
+===============================================================================
+
+1. FUENTES DE CONSULTA OFICIALES:
+-------------------------------------------------------------------------------
+* Can I Use (https://caniuse.com)
+  - backdrop-filter: Soporte global de 95.2% (requiere prefijo -webkit- en WebKit/Safari).
+  - flexbox gap: Soporte global de 97.4%.
+  - css-color-4 (oklch): Soporte en navegadores modernos (Chrome 111+, Safari 15.4+, Firefox 113+).
+  - user-select: Soporte del 100% implementando prefijos -webkit-, -moz- y -ms-.
+  - prefers-reduced-motion: Soporte en 98.6% de navegadores modernos.
+
+* MDN Web Docs (https://developer.mozilla.org/es/docs/Web/CSS/@supports)
+  - Guías oficiales de degradación elegante (Graceful Degradation) y mejora progresiva.
+
+
+2. TABLA COMPARATIVA DE PRUEBAS EN DOS NAVEGADORES:
+-------------------------------------------------------------------------------
+| Característica / Propiedad  | Google Chrome 120+ / Edge (Moderno) | Firefox ESR 102 / Navegador Antiguo | Comportamiento del Fallback |
+|:----------------------------|:------------------------------------|:-----------------------------------|:----------------------------|
+| Regla @supports             | Ejecuta bloque con efecto de vidrio | Salta bloque; aplica estilos base  | No se rompe el layout; el   |
+| (backdrop-filter: blur)     | semitransparente y desenfoque suave  | con fondo opaco #121927 accesible   | texto se mantiene legible   |
+|                             |                                     |                                     | al 100% sobre fondo oscuro. |
+|-----------------------------|-------------------------------------|-------------------------------------|-----------------------------|
+| Espaciado Flexbox           | Aplica 'gap: 1.5rem' de forma       | Si no soporta gap, @supports not    | Distribución vertical sin   |
+| (gap en display: flex)      | nativa entre los elementos hijos    | inyecta margen superior adyacente   | colapsos ni superposición.  |
+|-----------------------------|-------------------------------------|-------------------------------------|-----------------------------|
+| Función de color OKLCH      | Interpreta 'oklch(0.78 0.14 220)'   | Descarta oklch y aplica el fallback | El color celeste mantiene   |
+| vs. Fallback RGB/Hex        | con matiz brillante y saturado      | anterior 'rgb(56, 189, 248)'        | alto contraste de lectura.  |
+|-----------------------------|-------------------------------------|-------------------------------------|-----------------------------|
+| Prefijos de proveedor       | Lee prefijo '-webkit-user-select'   | Lee '-moz-user-select' o la regla   | Bloquea selección molesta   |
+| (-webkit-, -moz-, -ms-)     | y el estándar 'user-select' final   | estándar final sin advertencias     | en botones e insignias.     |
+|-----------------------------|-------------------------------------|-------------------------------------|-----------------------------|
+| Accesibilidad:              | Al activar reducción de movimiento | Cancela animaciones y transiciones  | Protege a usuarios con      |
+| prefers-reduced-motion      | en el sistema, cancela los hover    | de desplazamiento de inmediato      | trastornos vestibulares o   |
+|                             | tridimensionales y brillos pulsantes|                                     | mareos cinéticos.           |
+-------------------------------------------------------------------------------

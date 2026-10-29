@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil Profesional | Componente Moderno y Compatible</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Fondos luminosos ambientales -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <main class="page-container">
+    <article class="glass-profile-card">
+      
+      <!-- Cabecera con avatar e insignia -->
+      <header class="card-header">
+        <div class="avatar-wrapper">
+          <img 
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" 
+            alt="Foto de perfil de Elena Torres" 
+            class="avatar-img"
+            loading="lazy"
+          >
+          <span class="status-indicator" title="Disponible para proyectos"></span>
+        </div>
+        <div class="identity">
+          <span class="role-badge">Ingeniera de Software</span>
+          <h1 class="user-name">Elena Torres</h1>
+          <p class="user-handle">@elenadev</p>
+        </div>
+      </header>
+
+      <!-- Métricas del perfil -->
+      <section class="profile-stats">
+        <div class="stat-item">
+          <span class="stat-number">48</span>
+          <span class="stat-label">Proyectos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">1.2k</span>
+          <span class="stat-label">Commits</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">99.8%</span>
+          <span class="stat-label">Disponibilidad</span>
+        </div>
+      </section>
+
+      <!-- Resumen biográfico -->
+      <p class="user-bio">
+        Especializada en arquitectura frontend, interfaces resilientes y accesibilidad web. Construyendo experiencias digitales rápidas, escalables e inclusivas.
+      </p>
+
+      <!-- Habilidades técnicas -->
+      <div class="skills-group">
+        <span class="skill-tag">CSS Architecture</span>
+        <span class="skill-tag">Angular</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">Web Accessibility</span>
+      </div>
+
+      <!-- Acciones de interacción -->
+      <footer class="card-actions">
+        <button class="btn btn-primary" type="button">
+          <span>Contactar</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+        <button class="btn btn-secondary" type="button" aria-label="Guardar portafolio">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+          </svg>
+        </button>
+      </footer>
+
+    </article>
+  </main>
+</body>
+</html>
